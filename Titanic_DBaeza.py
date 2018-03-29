@@ -32,14 +32,17 @@ print(train_data.info())
 print(test_data.info())
 
 ## Survival rates by Sex
-sns.factorplot(x = 'Sex', hue = 'Survived',
-               data = all_data, kind = 'count')
+ax1 = sns.factorplot(x = 'Sex', hue = 'Survived',
+                     data = all_data, kind = 'count')
+ax1.set_title('Survival rates by Sex')
 # Show low survival rates for men and higher survival rates for women
 
 ## Effect of passenger class on survival rates
-sns.factorplot(x = 'Sex', hue = 'Pclass', col = 'Survived',
-               data = all_data, kind = 'count',
-               aspect = 0.7)
+ax2 = sns.factorplot(x = 'Sex', hue = 'Pclass', col = 'Survived',
+                     data = all_data, kind = 'count',
+                     aspect = 0.7)
+
+ax2.set_title('Survival rates by Sex and Passenger Class')
 # Increased death for third class passengers
 
 ## Grouping of ages from 0 to teenager, teenager to adult, adult to
@@ -48,15 +51,19 @@ all_data['Age_Range'] = pd.cut(all_data['Age'],
                                  bins = [0, 12, 18, 65, 100])
 
 ## Effect of passenger class on survival rates
-sns.factorplot(x = 'Sex', hue = 'Age_Range', col = 'Survived',
-               data = all_data, kind = 'count',
-               aspect = 0.7)
+ax3 = sns.factorplot(x = 'Sex', hue = 'Age_Range', col = 'Survived',
+                     data = all_data, kind = 'count',
+                     aspect = 0.7)
+
+ax3.set_title('Survival rates by Sex and Age Range')
 # High relevance of Age Range on survival rates
 
 ## Effect of port of embarkation on survival rates
-sns.factorplot(x = 'Sex', hue = 'Embarked', col = 'Survived',
-               data = all_data, kind = 'count',
-               aspect = 0.7)
+ax4 = sns.factorplot(x = 'Sex', hue = 'Embarked', col = 'Survived',
+                     data = all_data, kind = 'count',
+                     aspect = 0.7)
+
+ax4.set_title('Survival rates by Sex and Port of Embarkation')
 # Same distribution for survived and perished, could imply lack of relevance
 # for initial analysis
 
