@@ -48,7 +48,7 @@ ax2.set_title('Survival rates by Sex and Passenger Class')
 ## Grouping of ages from 0 to teenager, teenager to adult, adult to
 ## elderly and above
 all_data['Age_Range'] = pd.cut(all_data['Age'],
-                                 bins = [0, 12, 18, 65, 100])
+                               bins = [0, 12, 18, 65, 100])
 
 ## Effect of passenger class on survival rates
 ax3 = sns.factorplot(x = 'Sex', hue = 'Age_Range', col = 'Survived',
@@ -76,7 +76,7 @@ sns.factorplot(x = 'Sex', hue = 'SibSp', col  = 'Survived',
 ## ease data wrangling
 print(len(all_data['Fare'].unique()))
 
-all_data['Fare_Range'] = pd.qcut(all_data['Age'],
+all_data['Fare_Range'] = pd.qcut(all_data['Fare'],
                                  q = np.linspace(0, 1, num = 11,
                                                     endpoint = True))
 
